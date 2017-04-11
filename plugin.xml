@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-plugin-nuance-speechkit"
+    version="1.0.0">
+    <name>Cordova Plugin for Nuance Speechkit</name>
+    <description></description>
+    <license>MIT</license>
+    <keywords></keywords>
+
+    <!-- ios -->
+    <platform name="ios">
+        <js-module src="www/NuanceSpeechkit.js" name="plugin">
+            <clobbers target="NuanceSpeechkitPlugin" />
+        </js-module>
+        <config-file target="config.xml" parent="/*">
+            <feature name="NuanceSpeechkitPlugin">
+                <param name="ios-package" value="NuanceSpeechkitPlugin" onload="true" />
+            </feature>
+        </config-file>
+        
+        <header-file src="src/ios/NuanceSpeechkitPlugin.h" />
+        <source-file src="src/ios/NuanceSpeechkitPlugin.m" />
+        <header-file src="src/ios/SKSConfiguration.h" />
+        <source-file src="src/ios/SKSConfiguration.mm" />
+        
+        <framework src="src/ios/SpeechKit.framework" custom="true" weak="true" />
+        <framework src="Security.framework" />
+        <framework src="Foundation.framework" />
+        <framework src="CoreAudio.framework" />
+        <framework src="AudioToolbox.framework" />
+    </platform>
+</plugin>
